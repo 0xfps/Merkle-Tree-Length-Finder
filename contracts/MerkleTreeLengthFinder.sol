@@ -3,11 +3,9 @@ pragma solidity ^0.8.0;
 
 /**
 * @title Merkle Tree Length Finder.
-* @author Anthony (fps) https://github.com/fps8k.
+* @author Anthony (fps) https://github.com/0xfps.
 * @dev When given the base number of elements, it returns the length of the merkle tree.
 */
-
-
 contract MerkleTreeLengthFinder {
     /**
     * @dev Returns the expected Merkle Length of a Merkle Tree with base length `baseLeaf`.
@@ -30,7 +28,7 @@ contract MerkleTreeLengthFinder {
     *
     * @param _baseLeaf, given number of elements for the base.
     *
-    * @return merkleLength :: The expected Merkle Length.
+    * @return merkleLength The expected Merkle Length.
     */
     function _findMerkleLength(uint256 _baseLeaf) private pure returns(uint256 merkleLength) {
         /// @dev Set the passed `_baseLeaf` to a `baseLeaf` variable.
@@ -44,7 +42,7 @@ contract MerkleTreeLengthFinder {
             if (baseLeaf == 1) {
                 /// @return length :: The length of the Merkle Tree.
                 return length;
-            }else {
+            } else {
                 /// @dev Else:
                 /// @dev If the `baseLeaf` is an even number, divide by 2.
                 if (baseLeaf % 2 == 0) {
@@ -52,7 +50,7 @@ contract MerkleTreeLengthFinder {
                     baseLeaf = baseLeaf / 2;
                     /// @dev Increment length.
                     length ++;
-                }else {
+                } else {
                     /// @dev Else if the `baseLeaf` is odd, then divide by 2 and add 1 [Solidity rounds down divisions with remainders].
                     baseLeaf = (baseLeaf / 2) + 1;
                     /// @dev Increment length.
